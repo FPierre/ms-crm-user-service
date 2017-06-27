@@ -1,0 +1,9 @@
+{
+  "name": "ms-crm-user-service",
+  "version": "0.0.1",
+  "main": "user-service.js",
+  "license": "MIT",
+  "dependencies": {
+    "cote": "^0.14.1"
+  }
+}
