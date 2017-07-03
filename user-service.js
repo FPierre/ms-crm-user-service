@@ -7,6 +7,10 @@ const users = [
   { id: 1, name: 'pierre', password: 'pierre' }
 ]
 
+responder.on('show', ({ type, userId }, cb) => {
+  cb(users.find(u => u.id === userId))
+}
+
 responder.on('login', ({ type, user }, cb) => {
   cb(users.find(u => u.name === user.name && user.password === user.password))
 })
