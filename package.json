@@ -3,6 +3,9 @@
   "version": "0.0.1",
   "main": "user-service.js",
   "license": "MIT",
+  "scripts": {
+    "start": "node user-service.js"
+  },
   "dependencies": {
     "cote": "^0.14.1"
   }

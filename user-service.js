@@ -8,8 +8,17 @@ const users = [
 ]
 
 responder.on('show', ({ type, userId }, cb) => {
-  cb(users.find(u => u.id === userId))
-}
+  const user = users.find(u => u.id === userId)
+
+  return new Promise((resolve, reject) => {
+
+    if (user) {
+      resolve(user)
+    } else {
+      reject('rejected')
+    }
+  })
+})
 
 responder.on('login', ({ type, user }, cb) => {
   cb(users.find(u => u.name === user.name && user.password === user.password))
