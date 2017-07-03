@@ -7,11 +7,20 @@ const users = [
   { id: 1, name: 'pierre', password: 'pierre' }
 ]
 
+responder.on('index', ({ type }, cb) => {
+  return new Promise((resolve, reject) => {
+    if (true) {
+      resolve(users)
+    } else {
+      reject('rejected')
+    }
+  })
+})
+
 responder.on('show', ({ type, userId }, cb) => {
   const user = users.find(u => u.id === userId)
 
   return new Promise((resolve, reject) => {
-
     if (user) {
       resolve(user)
     } else {
