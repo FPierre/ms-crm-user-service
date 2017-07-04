@@ -9,16 +9,13 @@ const users = [
 
 responder.on('index', ({ type }, cb) => {
   return new Promise((resolve, reject) => {
-    if (true) {
-      resolve(users)
-    } else {
-      reject('rejected')
-    }
+    resolve(users)
+    reject('rejected')
   })
 })
 
-responder.on('show', ({ type, userId }, cb) => {
-  const user = users.find(u => u.id === userId)
+responder.on('show', ({ type, id }, cb) => {
+  const user = users.find(u => u.id === id)
 
   return new Promise((resolve, reject) => {
     if (user) {
