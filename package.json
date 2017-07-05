@@ -7,6 +7,7 @@
     "start": "node user-service.js"
   },
   "dependencies": {
+    "aws-sdk": "^2.80.0",
     "cote": "^0.14.1",
     "sequelize": "^4.2.1",
     "sqlite3": "^3.1.8"
