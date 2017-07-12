@@ -1,7 +1,7 @@
 module.exports = {
-  dbUsername: '',
+  dbUser: '',
   dbSecret: ''
-  dbURL: '',
+  dbUrl: '',
   dbPort: '',
   dbName: ''
 }
