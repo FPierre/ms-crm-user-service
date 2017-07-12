@@ -1,10 +1,10 @@
 {
   "name": "ms-crm-user-service",
   "version": "0.0.1",
-  "main": "user-service.js",
+  "main": "./src/user-service.js",
   "license": "MIT",
   "scripts": {
-    "start": "node user-service.js"
+    "start": "node ./src/user-service.js"
   },
   "dependencies": {
     "aws-sdk": "^2.80.0",

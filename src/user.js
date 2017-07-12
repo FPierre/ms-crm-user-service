@@ -1,21 +1,23 @@
 const mongoose = require('mongoose')
+
 const Schema = mongoose.Schema
+mongoose.Promise = global.Promise
 
 const userSchema = new Schema({
-  first_name: { type: String, required: true },
-  last_name: { type: String, required: true },
+  firstName: { type: String, required: true },
+  lastName: { type: String, required: true },
   password: { type: String, required: true },
-  created_at: Date,
-  updated_at: Date
+  createdAt: Date,
+  updatedAt: Date
 })
 
 userSchema.pre('save', next => {
   const currentDate = new Date()
 
-  this.updated_at = currentDate
+  this.updatedAt = currentDate
 
-  if (!this.created_at) {
-    this.created_at = currentDate
+  if (!this.createdAt) {
+    this.createdAt = currentDate
   }
 
   next()

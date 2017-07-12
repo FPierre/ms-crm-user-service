@@ -1,5 +1,5 @@
 const cote = require('cote')
-const User = require('.//user')
+const User = require('./user')
 
 const responder = new cote.Responder({ name: 'user responder', key: 'user' })
 
