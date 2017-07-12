@@ -1,17 +1,22 @@
 const cote = require('cote')
+const { connect } = require('../db/connection')
 const User = require('./user')
+
+connect()
 
 const responder = new cote.Responder({ name: 'user responder', key: 'user' })
 
-responder.on('index', ({ type }, cb) => {
-  return User.find({}).exec()
+responder.on('index', () => {
+  return User.find({})
 })
 
-responder.on('show', ({ type, id }, cb) => {
-  return User.findById(id).exec()
+responder.on('show', ({ id }) => {
+  console.log('show')
+  console.log(id)
+  return User.findById(id)
 })
 
-responder.on('login', ({ type, user }, cb) => {
+responder.on('login', ({ user }) => {
   cb(users.find(u => u.name === user.name && user.password === user.password))
 })
 
