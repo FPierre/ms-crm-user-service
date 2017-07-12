@@ -1,9 +1,6 @@
 const mongoose = require('mongoose')
 const env = require('../env/dev.env')
-const { init } = require('./init')
 
-mongoose.Promise = global.Promise
+const mongodbUrl = `mongodb://${env.dbUser}:${env.dbSecret}@${env.dbUrl}:${env.dbPort}/${env.dbName}`
 
-const mongodbURI = `mongodb://${env.dbUser}:${env.dbSecret}@${env.dbURL}:${env.dbPort}/${env.dbName}`
-
-mongoose.connect(mongodbURI).then(() => init()).catch(err => console.log(err))
+exports.connect = () => mongoose.connect(mongodbUrl)
