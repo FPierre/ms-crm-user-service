@@ -11,8 +11,6 @@ responder.on('index', () => {
 })
 
 responder.on('show', ({ id }) => {
-  console.log('show')
-  console.log(id)
   return User.findById(id)
 })
 
