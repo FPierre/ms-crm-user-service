@@ -13,10 +13,23 @@ const userSchema = new mongoose.Schema({
     maxLength: 255,
     trim: true
   },
+  email: {
+    type: String,
+    required: true,
+    unique: true,
+    maxlength: 255,
+    trim: true
+  },
   password: {
     type: String,
     maxLength: 255,
     required: true
+  },
+  access: {
+    type: String,
+    required: true,
+    enum: ['guest', 'advisor', 'commercial', 'administrator'],
+    default: 'guest'
   },
   createdAt: {
     type: Date,

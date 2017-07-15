@@ -1,8 +1,11 @@
 const cote = require('cote')
 const { connect } = require('../db/connection')
+const { init } = require('../db/init')
 const User = require('./user')
 
 connect()
+  // .then(() => init())
+  // .catch(err => console.log(err))
 
 const responder = new cote.Responder({ name: 'user responder', key: 'user' })
 
@@ -14,8 +17,12 @@ responder.on('show', ({ id }) => {
   return User.findById(id)
 })
 
-responder.on('login', ({ user }) => {
-  cb(users.find(u => u.name === user.name && user.password === user.password))
+responder.on('create', ({ user }) => {
+  return new User(user).save()
+})
+
+responder.on('login', ({ email }) => {
+  return User.findOne({ 'email': email }, 'email password')
 })
 
 /*

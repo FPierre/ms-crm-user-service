@@ -1,13 +1,15 @@
 const User = require('../src/user')
 
 exports.init = () => {
-  const userOne = new User({
+  const adminUser = new User({
     firstName: 'John',
     lastName: 'Doe',
-    password: 'password'
+    email: 'jd@gmail.com',
+    password: 'password',
+    access: 'administrator'
   })
 
-  userOne.save(err => {
+  adminUser.save(err => {
     if (err) {
       throw err
     }
