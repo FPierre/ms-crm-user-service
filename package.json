@@ -9,6 +9,7 @@
   "dependencies": {
     "aws-sdk": "^2.80.0",
     "cote": "^0.14.1",
+    "dotenv": "^4.0.0",
     "mongoose": "4.10.8"
   }
 }
