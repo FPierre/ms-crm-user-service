@@ -31,6 +31,12 @@ const userSchema = new mongoose.Schema({
     enum: ['guest', 'advisor', 'commercial', 'administrator'],
     default: 'guest'
   },
+  crmStatus: {
+    type: String,
+    required: true,
+    enum: ['pending', 'inactive', 'active'],
+    default: 'pending'
+  },
   createdAt: {
     type: Date,
     default: Date.now

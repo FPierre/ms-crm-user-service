@@ -6,7 +6,8 @@ exports.init = () => {
     lastName: 'Doe',
     email: 'jd@gmail.com',
     password: 'password',
-    access: 'administrator'
+    access: 'administrator',
+    crmStatus: 'active'
   })
 
   adminUser.save(err => {
