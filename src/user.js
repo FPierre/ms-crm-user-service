@@ -1,4 +1,6 @@
 const mongoose = require('mongoose')
+// https://docs.mongodb.com/manual/reference/method/cursor.skip/
+const mongoosePaginate = require('mongoose-paginate')
 
 const userSchema = new mongoose.Schema({
   firstName: {
@@ -46,6 +48,8 @@ const userSchema = new mongoose.Schema({
     default: Date.now
   }
 })
+
+userSchema.plugin(mongoosePaginate)
 
 const User = mongoose.model('User', userSchema)
 

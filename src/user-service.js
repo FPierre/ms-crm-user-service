@@ -9,8 +9,8 @@ connect()
 
 const responder = new cote.Responder({ name: 'user responder', key: 'user' })
 
-responder.on('index', () => {
-  return User.find({})
+responder.on('index', ({ page, limit }) => {
+  return User.paginate({}, { page, limit })
 })
 
 responder.on('show', ({ id }) => {
